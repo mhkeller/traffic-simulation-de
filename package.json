@@ -1,0 +1,24 @@
+{
+  "name": "traffic-simulation-de",
+  "version": "1.0.0",
+  "description": "Source code for javascript simulation of  [www.traffic-simulation.de](http://www.traffic-simulation.de)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fix": "standard js/*.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/movsim/traffic-simulation-de.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/movsim/traffic-simulation-de/issues"
+  },
+  "homepage": "https://github.com/movsim/traffic-simulation-de#readme",
+  "dependencies": {
+    "standard": "^8.4.0"
+  }
+}
