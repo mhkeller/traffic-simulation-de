@@ -31,13 +31,13 @@ var dt = 0.5 // only initialization
 
 var sizePhys = 355    // responsive design
 var mainroadLen = 770
-var nLanes = 2
+var nLanes = 1
 var laneWidth = 7
 
-var uBeginRoadworks = 450
-var uEndRoadworks = 550
-var laneRoadwork = 0  // 0=left
-var lenRoadworkElement = 10
+// var uBeginRoadworks = 450
+// var uEndRoadworks = 550
+// var laneRoadwork = 0  // 0=left
+// var lenRoadworkElement = 10
 
 var straightLen = 0.34 * mainroadLen      // straight segments of U
 var arcLen = mainroadLen - 2 * straightLen // length of half-circe arc of U
@@ -117,11 +117,10 @@ var longModelCar
 var longModelTruck
 var LCModelCar
 var LCModelTruck
-var LCModelMandatoryRight = new MOBIL(MOBIL_mandat_bSafe, MOBIL_mandat_bSafeMax,
-            MOBIL_mandat_bThr, MOBIL_mandat_bias)
-var LCModelMandatoryLeft = new MOBIL(MOBIL_mandat_bSafe, MOBIL_mandat_bSafeMax,
-           MOBIL_mandat_bThr, -MOBIL_mandat_bias)
-
+// var LCModelMandatoryRight = new MOBIL(MOBIL_mandat_bSafe, MOBIL_mandat_bSafeMax,
+            // MOBIL_mandat_bThr, MOBIL_mandat_bias)
+// var LCModelMandatoryLeft = new MOBIL(MOBIL_mandat_bSafe, MOBIL_mandat_bSafeMax,
+           // MOBIL_mandat_bThr, -MOBIL_mandat_bias)
 updateModels()
               // LCModelCar,LCModelTruck);
 
@@ -130,8 +129,8 @@ var roadID = 1
 var mainroad = new road(roadID, mainroadLen, nLanes, densityInit, speedInit,
           truckFracInit, isRing)
 
-mainroad.LCModelMandatoryRight = LCModelMandatoryRight // unique mandat LC model
-mainroad.LCModelMandatoryLeft = LCModelMandatoryLeft // unique mandat LC model
+// mainroad.LCModelMandatoryRight = LCModelMandatoryRight // unique mandat LC model
+// mainroad.LCModelMandatoryLeft = LCModelMandatoryLeft // unique mandat LC model
 
 // #########################################################
 // add standing virtual vehicles at position of road works
@@ -139,18 +138,18 @@ mainroad.LCModelMandatoryLeft = LCModelMandatoryLeft // unique mandat LC model
 
 // number of virtual "roadwork" vehicles
 
-var longModelObstacle = new IDM(0, IDM_T, IDM_s0, 0, IDM_b)
-var LCModelObstacle = new MOBIL(MOBIL_bSafe, MOBIL_bSafe, 1000, MOBIL_bBiasRight_car)
-var nr = Math.round((uEndRoadworks - uBeginRoadworks) / lenRoadworkElement)
+// var longModelObstacle = new IDM(0, IDM_T, IDM_s0, 0, IDM_b)
+// var LCModelObstacle = new MOBIL(MOBIL_bSafe, MOBIL_bSafe, 1000, MOBIL_bBiasRight_car)
+// var nr = Math.round((uEndRoadworks - uBeginRoadworks) / lenRoadworkElement)
 
-for (var ir = 0; ir < nr; ir++) {
-  var u = uBeginRoadworks + (ir + 0.5) * lenRoadworkElement
-  var virtualStandingVeh = new vehicle(lenRoadworkElement, laneWidth,
-          u, laneRoadwork, 0, 'obstacle')
-  virtualStandingVeh.longModel = longModelObstacle
-  virtualStandingVeh.LCModel = LCModelObstacle
-  mainroad.veh.push(virtualStandingVeh) // append; prepend=unshift
-}
+// for (var ir = 0; ir < nr; ir++) {
+//   var u = uBeginRoadworks + (ir + 0.5) * lenRoadworkElement
+//   var virtualStandingVeh = new vehicle(lenRoadworkElement, laneWidth,
+//           u, laneRoadwork, 0, 'obstacle')
+//   virtualStandingVeh.longModel = longModelObstacle
+//   virtualStandingVeh.LCModel = LCModelObstacle
+//   mainroad.veh.push(virtualStandingVeh) // append; prepend=unshift
+// }
 
 // put roadwork obstacles at right place and let vehicles get context of them
 
@@ -213,7 +212,7 @@ function updateU () {
 
     // externally impose mandatory LC behaviour
     // all left-lane vehicles must change lanes to the right
-  mainroad.setLCMandatory(0, uBeginRoadworks, true)
+  // mainroad.setLCMandatory(0, uBeginRoadworks, true)
 
     // do central simulation update of vehicles
 
